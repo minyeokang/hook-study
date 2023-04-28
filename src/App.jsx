@@ -1,30 +1,13 @@
 import { useState, useRef, useEffect } from 'react'
 import './App.css'
+import Input from './components/Input'
+import Page from './components/Page'
 
 function App() {
-  const [count, setCount] = useState(0)
-  const inputRef = useRef()
-  useEffect(()=>{
-    inputRef.current.focus()
-    console.log(inputRef.current.value)
-  })
-  const login = () => {
-    alert(`hello ${inputRef.current.value}`)
-    inputRef.current.value = ''
-    inputRef.current.focus()
-  }
+  const [isDark, setIsDark] = useState(false)
   return (
     <>
-      <div>
-       <input ref={inputRef} type="text"placeholder='name' />
-       <button onClick={login}></button>
-      </div>
-      <h1 className='hello'>Vite + React</h1>
-      <div className="card">
-        <button className='count-btn' onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      <Page isDark={isDark} setIsDark={setIsDark} />
     </>
   )
 }
