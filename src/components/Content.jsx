@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { useMemo } from 'react'
 import { useEffect } from 'react'
 import { ThemeContext } from '../context/ThemeContext'
@@ -16,24 +16,28 @@ const Content = () => {
         }
     }, [isKorea])
    
-
-        
     useEffect(()=>{
         console.log('test')
     },[location])
+    
+    
+
   return (
     <>
-    <p>increase number</p>
-    <input type="number" value={number} onChange={(e)=>setNumber(e.target.value)} />
-    <p>country: {location.country}</p>
-    <button onClick={()=>setIsKorea(!isKorea)}>change</button>
+   
     <div className="content" style={{
         backgroundColor: isDark ? 'black' : 'white',
         color: isDark ? 'white' : 'black'
     }}>
+        
+
+    <p>increase number</p>
+    <input type="number" value={number} onChange={(e)=>setNumber(e.target.value)} />
+    <p>country: {location.country}</p>
+    <button onClick={()=>setIsKorea(!isKorea)}>change</button>
         <p>have a nice day {user}</p>
     </div>
-        </>
+    </>
   )
 }
 
